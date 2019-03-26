@@ -142,8 +142,13 @@ while True:
         #print("===============================================")
         filteredJson={}
         filteredJson["data"] = filtered_comments
-        print(filteredJson)
-        sendData= json.dumps(filteredJson)
+        #json to string
+        sendData = ""
+        for filtered_comment in filtered_comments:
+            sendData += filtered_comment["message"]+'\n'
+        #print(filteredJson)
+        print(sendData+"----------------------")
+        #sendData= json.dumps(filteredJson)
         #print(sendData)
         byteData = sendData.encode()
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
