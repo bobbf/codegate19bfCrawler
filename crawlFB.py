@@ -124,9 +124,11 @@ while True:
             #print("time delta : ", this_time-that_time)
             #print("--------------------")
             #print("message : ", comment["message"], "// like :", comment["like_count"])
-            if(len(comment["message"]) > 20):
+            byte_comment = comment["message"].encode('utf-8')
+            #if(len(byte_comment) > 32):
+                #byte_comment = byte_comment[0:29]
+                #comment["message"] = byte_comment.decode()
                 #print("Fail - long commnet")
-                continue
             if(this_time-that_time <  DT.timedelta(seconds=60*30) ):
             #if(True):
                 #print("add :",comment)
