@@ -103,7 +103,7 @@ def get_comments(post_id):
         result.append(resultComment)
     #print(commentJson["paging"])
 
-    return sorted(result, key=lambda k : k["created_time"], reverse=False)
+    return sorted(result, key=lambda k : k["created_time"], reverse=True)
 
 
 #get_posts()
@@ -134,7 +134,7 @@ while True:
             #else:
                # print("Fail - old comment")
 
-        filtered_comments = sorted(filtered_comments, key=lambda k : k["created_time"], reverse=False)
+        filtered_comments = sorted(filtered_comments, key=lambda k : k["created_time"], reverse=True)
         #print("================================================")
         #print(json.dumps(filtered_comments,indent=2, sort_keys=True))
         #print("-----------------------------------------------")
@@ -142,6 +142,7 @@ while True:
         #print("===============================================")
         filteredJson={}
         filteredJson["data"] = filtered_comments
+        filtered_comments = filtered_comments[0:10]
         #json to string
         sendData = ""
         for filtered_comment in filtered_comments:
